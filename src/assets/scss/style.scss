@@ -1,12 +1,9 @@
 @import 'normalize.css';
-@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500&display=swap');
+
+@import './themeVars.module.scss';
 
 :root {
-    --primary: #fe2c55;
-    --black: #000;
-    --white: #fff;
     --text-color: #161823;
-
     --font-family: 'Roboto', sans-serif;
 }
 

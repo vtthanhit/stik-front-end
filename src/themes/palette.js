@@ -1,6 +1,7 @@
 export default function themePalette(theme) {
     return {
         common: {
+            white: theme.colors?.paper,
             black: theme.colors?.darkPaper,
         },
         primary: {

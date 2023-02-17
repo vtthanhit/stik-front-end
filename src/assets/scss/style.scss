@@ -4,6 +4,7 @@
 
 :root {
     --text-color: #161823;
+    --bg-color: #fafafa;
     --font-family: 'Roboto', sans-serif;
 }
 
@@ -14,14 +15,15 @@
 }
 
 html {
-    font-size: 62.5%;
+    height: 100%;
 }
 
 body {
     font-family: var(--font-family);
-    font-size: 1.6rem;
+    font-size: 1rem;
     line-height: 1.5;
     text-rendering: optimizespeed;
     color: var(--text-color);
     overflow-y: overlay;
+    background-color: var(--bg-color);
 }

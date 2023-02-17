@@ -1,34 +1,34 @@
 export default function themeTypography(theme) {
     return {
         h6: {
-            fontWeight: 500,
+            fontWeight: 400,
             color: theme.heading,
-            fontSize: '0.75rem',
+            fontSize: '1.4rem',
         },
         h5: {
-            fontSize: '0.875rem',
+            fontSize: '1.6rem',
             color: theme.heading,
-            fontWeight: 500,
+            fontWeight: 400,
         },
         h4: {
-            fontSize: '1rem',
+            fontSize: '1.8rem',
             color: theme.heading,
-            fontWeight: 600,
+            fontWeight: 400,
         },
         h3: {
-            fontSize: '1.25rem',
+            fontSize: '2rem',
             color: theme.heading,
-            fontWeight: 600,
+            fontWeight: 400,
         },
         h2: {
-            fontSize: '1.5rem',
+            fontSize: '2.4rem',
             color: theme.heading,
-            fontWeight: 700,
+            fontWeight: 300,
         },
         h1: {
-            fontSize: '2.125rem',
+            fontSize: '3.6rem',
             color: theme.heading,
-            fontWeight: 700,
+            fontWeight: 300,
         },
         // subtitle1: {
         //     fontSize: '0.875rem',
@@ -50,12 +50,12 @@ export default function themeTypography(theme) {
         //     fontWeight: 400,
         //     lineHeight: '1.334em',
         // },
-        // body2: {
-        //     letterSpacing: '0em',
-        //     fontWeight: 400,
-        //     lineHeight: '1.5em',
-        //     color: theme.darkTextPrimary,
-        // },
+        body2: {
+            letterSpacing: '0em',
+            fontWeight: 400,
+            lineHeight: '1.5em',
+            color: theme.darkTextPrimary,
+        },
         // button: {
         //     textTransform: 'capitalize',
         // },

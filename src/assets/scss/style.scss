@@ -6,6 +6,10 @@
     --text-color: #161823;
     --bg-color: #fafafa;
     --font-family: 'Roboto', sans-serif;
+    
+    --drawer-nav-width: 232px;
+    --scroll-width: 8px;
+    --header-height: 64px;
 }
 
 * {
@@ -20,7 +24,7 @@ html {
 
 body {
     font-family: var(--font-family);
-    font-size: 1rem;
+    font-size: .875rem;
     line-height: 1.5;
     text-rendering: optimizespeed;
     color: var(--text-color);

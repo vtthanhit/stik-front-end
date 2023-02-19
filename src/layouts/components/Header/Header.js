@@ -1,13 +1,27 @@
-import { AppBar, IconButton, Toolbar } from '@mui/material';
+import { AppBar, Box, IconButton, Toolbar, Tooltip } from '@mui/material';
 import Brightness4Icon from '@mui/icons-material/Brightness4';
 
-function Header() {
+import AvatarItem from './Avatar';
+import HeaderLeftItem from './HeaderLeft';
+import HeaderRightItem from './HeaderRight';
+
+function Header({ isDefault }) {
     return (
         <AppBar>
-            <Toolbar sx={{ display: 'flex', justifyContent: 'flex-end' }}>
-                <IconButton edge="end">
-                    <Brightness4Icon sx={(theme) => ({ color: theme.palette.common.white })} />
-                </IconButton>
+            <Toolbar sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+                { isDefault && <HeaderRightItem /> }
+
+                <Box sx={{ display: 'flex', alignItems: 'center' }}>
+                    { isDefault && <HeaderLeftItem /> }
+
+                    <Tooltip title="Toggle Dark Mode">
+                        <IconButton edge="end" sx={{ padding: '12px', mr: '12px' }}>
+                            <Brightness4Icon sx={(theme) => ({ color: theme.palette.common.white })} />
+                        </IconButton>
+                    </Tooltip>
+
+                    { isDefault && <AvatarItem /> }
+                </Box>
             </Toolbar>
         </AppBar>
     );

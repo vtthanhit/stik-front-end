@@ -63,7 +63,7 @@ function LoginPage() {
                 <Grid container spacing={2} direction='column'>
                     <Grid item xs={12} sx={{ padding: '12px' }}>
                         <FlexCenterBox>
-                            <Dashboard sx={{ width: '100px', height: '100px', color: 'primary.main' }} />
+                            <Dashboard color='primary' sx={{ width: '100px', height: '100px' }} />
                         </FlexCenterBox>
                     </Grid>
                     <Grid item xs={12} sx={{ padding: '12px' }}>

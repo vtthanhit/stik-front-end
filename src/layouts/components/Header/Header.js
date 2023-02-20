@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import { AppBar, Box, IconButton, Toolbar, Tooltip } from '@mui/material';
 import Brightness4Icon from '@mui/icons-material/Brightness4';
 
@@ -27,5 +28,9 @@ function Header({ isDefault }) {
         </AppBar>
     );
 }
+
+Header.propTypes = {
+    isDefault: PropTypes.bool,
+};
 
 export default Header;

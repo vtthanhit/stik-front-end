@@ -16,19 +16,19 @@ import {
 } from '@mui/material';
 import { KeyboardArrowDownOutlined } from '@mui/icons-material';
 import { useState } from 'react';
+import PropTypes from 'prop-types';
 
 import AppPagination from '../pagy/AppPagination';
 
-function DashboardTable({...props}) {
-    const data = props.data;
-    const headCells = props.headCells;
+function DashboardTable(props) {
+    const { data, headCells, actions } = props;
 
     // Switch
     const optionSwitchs = ['Dense', 'Striped', 'Bordered'];
     const [switchSelected, setSwitchSelected] = useState('Striped');
 
-    const handleSwitchChange = (option) => (event) => { 
-        setSwitchSelected(option === switchSelected ? null : option)
+    const handleSwitchChange = (option) => (event) => {
+        setSwitchSelected(option === switchSelected ? null : option);
     };
 
     // Sort table
@@ -73,19 +73,19 @@ function DashboardTable({...props}) {
     const open = Boolean(anchorEl);
 
     const handleClick = (event) => {
-       setAnchorEl(event.currentTarget);
+        setAnchorEl(event.currentTarget);
     };
     const handleClose = () => {
-       setAnchorEl(null);
+        setAnchorEl(null);
     };
 
     return (
         <TableContainer component={Paper}>
             {optionSwitchs.map((option, index) => (
-                <FormControlLabel 
-                    key={index} 
-                    sx={{ ml: '8px' }} 
-                    control={<Switch checked={switchSelected===option} onChange={handleSwitchChange(option)} />}
+                <FormControlLabel
+                    key={index}
+                    sx={{ ml: '8px' }}
+                    control={<Switch checked={switchSelected === option} onChange={handleSwitchChange(option)} />}
                     label={option}
                 />
             ))}
@@ -93,7 +93,7 @@ function DashboardTable({...props}) {
             <Table size={switchSelected === 'Dense' ? 'small' : 'medium'}>
                 <TableHead>
                     <TableRow>
-                        {headCells.map(headCell => (
+                        {headCells.map((headCell) => (
                             <TableCell key={headCell.id}>
                                 <TableSortLabel
                                     active={orderBy === headCell.id}
@@ -109,18 +109,18 @@ function DashboardTable({...props}) {
                 <TableBody>
                     {sortedRows.map((row, index) => (
                         <TableRow key={index}>
-                            {Object.keys(row).map(key => (
+                            {Object.keys(row).map((key) =>
                                 typeof row[key] === 'boolean' ? (
                                     <TableCell key={key}>
                                         <Checkbox checked={row[key]} />
                                     </TableCell>
                                 ) : (
                                     <TableCell key={key}>{row[key]}</TableCell>
-                                )
-                            ))}
+                                ),
+                            )}
                             <TableCell>
                                 <Button
-                                    variant='contained'
+                                    variant="contained"
                                     disableElevation
                                     aria-controls={open ? 'actions' : undefined}
                                     aria-haspopup="true"
@@ -131,24 +131,32 @@ function DashboardTable({...props}) {
                                     Actions
                                 </Button>
                                 <Menu
-                                    id='actions'
+                                    id="actions"
                                     anchorEl={anchorEl}
                                     keepMounted
                                     open={Boolean(anchorEl)}
                                     onClose={handleClose}
                                 >
-                                    {props.actions.map((action, index) => (
-                                        <MenuItem key={index} onClick={handleClose}>{action}</MenuItem>
+                                    {actions.map((action, index) => (
+                                        <MenuItem key={index} onClick={handleClose}>
+                                            {action}
+                                        </MenuItem>
                                     ))}
                                 </Menu>
                             </TableCell>
                         </TableRow>
                     ))}
                 </TableBody>
-                <AppPagination data={data} component={props.component} />
+                <AppPagination data={data} />
             </Table>
         </TableContainer>
     );
 }
+
+DashboardTable.propTypes = {
+    data: PropTypes.array.isRequired,
+    headCells: PropTypes.array.isRequired,
+    actions: PropTypes.array.isRequired,
+};
 
 export default DashboardTable;

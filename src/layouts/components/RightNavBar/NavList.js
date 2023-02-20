@@ -9,54 +9,48 @@ import {
 } from '@mui/material';
 import { useLocation } from 'react-router-dom';
 
-import MainListItems from './MainListItems';
 import { dataNav } from './dataNav';
+import MainListItems from './MainListItems';
 
 function NavList() {
-  const location = useLocation();
+    const location = useLocation();
 
-  const isNavActive = (path) => {
-    return location.pathname === path ? true : false;
-  };
+    const isNavActive = (path) => {
+        return location.pathname === path ? true : false;
+    };
 
-  return (
-    <List sx={{ pt: '0px' }}>
-      <MainListItems />
-      <Box>
-        {
-          dataNav.map((list, index) => (
-            <Box key={index}>
-              <ListSubheader>{list.subHeader}</ListSubheader>
-              {
-                list.data.map((item, index) => (
-                  <ListItem disablePadding key={index}>
-                    <ListItemButton 
-                      component="a" 
-                      href={item.url} 
-                      selected={isNavActive(item.url)}
-                      sx={{
-                        '&.Mui-selected': {
-                          backgroundColor: 'rgb(0 0 0 / 4%)',
-                        },
-                        '&.Mui-selected .MuiTypography-root': {
-                          color: 'primary.main',
-                        },
-                      }}
-                    >
-                      <ListItemIcon sx={{ minWidth: '36px' }}>
-                        {item.icon}
-                      </ListItemIcon>
-                      <ListItemText primary={item.title} />
-                    </ListItemButton>
-                  </ListItem>
-                ))
-              }
+    return (
+        <List sx={{ pt: '0px' }}>
+            <MainListItems />
+            <Box>
+                {dataNav.map((list, index) => (
+                    <Box key={index}>
+                        <ListSubheader>{list.subHeader}</ListSubheader>
+                        {list.data.map((item, index) => (
+                            <ListItem disablePadding key={index}>
+                                <ListItemButton
+                                    component="a"
+                                    href={item.url}
+                                    selected={isNavActive(item.url)}
+                                    sx={{
+                                        '&.Mui-selected': {
+                                            backgroundColor: 'rgb(0 0 0 / 4%)',
+                                        },
+                                        '&.Mui-selected .MuiTypography-root': {
+                                            color: 'primary.main',
+                                        },
+                                    }}
+                                >
+                                    <ListItemIcon sx={{ minWidth: '36px' }}>{item.icon}</ListItemIcon>
+                                    <ListItemText primary={item.title} />
+                                </ListItemButton>
+                            </ListItem>
+                        ))}
+                    </Box>
+                ))}
             </Box>
-          ))
-        }
-      </Box>
-    </List>
-  );
+        </List>
+    );
 }
 
 export default NavList;

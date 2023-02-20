@@ -1,4 +1,5 @@
 import { createContext, useState } from 'react';
+import PropTypes from 'prop-types';
 
 export const LayoutContext = createContext();
 
@@ -15,6 +16,10 @@ const LayoutContextProvider = ({ children }) => {
             {children}
         </LayoutContext.Provider>
     )
+};
+
+LayoutContextProvider.propTypes = {
+    children: PropTypes.node.isRequired,
 };
 
 export default LayoutContextProvider;

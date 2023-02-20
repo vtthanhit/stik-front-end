@@ -70,12 +70,12 @@ function LoginPage() {
                         </Grid>
                         <Grid item xs={12} sx={{ padding: '12px' }}>
                             <FlexCenterBox>
-                                <Typography variant="h2">Sign In</Typography>
+                                <Typography variant="h4">Sign In</Typography>
                             </FlexCenterBox>
                         </Grid>
                         <Grid item xs={12} sx={{ padding: '12px' }}>
                             <FlexCenterBox>
-                                <Typography variant="p">Login with your Credentials.</Typography>
+                                <Typography variant="body1">Login with your Credentials.</Typography>
                             </FlexCenterBox>
                         </Grid>
                         <Grid item xs={12} sx={{ padding: '12px' }}>

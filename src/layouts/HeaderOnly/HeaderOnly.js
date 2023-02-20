@@ -7,13 +7,7 @@ function HeaderOnlyLayout({ children }) {
     return (
         <>
             <Header />
-            <Box
-                component="main"
-                sx={{
-                    mt: 'var(--header-height)',
-                    minHeight: 'calc(100vh - var(--header-height))',
-                }}
-            >
+            <Box component="main" sx={{ mt: 'var(--header-height)' }}>
                 {children}
             </Box>
         </>

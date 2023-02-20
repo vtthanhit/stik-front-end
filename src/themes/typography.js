@@ -10,14 +10,12 @@ export default function themeTypography(theme) {
         h5: {
             fontSize: '1.5rem',
             color: theme.heading,
-            lineHeight: '1.334',
             letterSpacing: '0',
             fontWeight: 400,
         },
         h4: {
             fontSize: '2.125rem',
             lineHeight: '1.235',
-            letterSpacing: '00735em',
             color: theme.heading,
             fontWeight: 400,
         },

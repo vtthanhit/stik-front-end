@@ -8,11 +8,12 @@ import HeaderRightItem from './HeaderRight';
 function Header({ isDefault }) {
     return (
         <AppBar>
-            <Toolbar sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
-                { isDefault && <HeaderRightItem /> }
+            <Toolbar sx={{ display: 'flex', justifyContent: 'flex-end', alignItems: 'center' }}>
+                {isDefault && <HeaderRightItem />}
+                <Box flexGrow={1} />
 
                 <Box sx={{ display: 'flex', alignItems: 'center' }}>
-                    { isDefault && <HeaderLeftItem /> }
+                    {isDefault && <HeaderLeftItem />}
 
                     <Tooltip title="Toggle Dark Mode">
                         <IconButton edge="end" sx={{ padding: '12px', mr: '12px' }}>
@@ -20,7 +21,7 @@ function Header({ isDefault }) {
                         </IconButton>
                     </Tooltip>
 
-                    { isDefault && <AvatarItem /> }
+                    {isDefault && <AvatarItem />}
                 </Box>
             </Toolbar>
         </AppBar>

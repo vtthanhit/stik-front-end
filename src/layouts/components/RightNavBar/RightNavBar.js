@@ -2,9 +2,8 @@ import { useContext } from 'react';
 import { Drawer, Box } from '@mui/material';
 import { styled } from '@mui/material/styles';
 
-import { LayoutContext } from '../../contexts/LayoutContext';
-
 import NavList from './NavList';
+import { LayoutContext } from '../../contexts/LayoutContext';
 
 const StyledDrawer = styled(Drawer)({
     '& .MuiDrawer-paper': {

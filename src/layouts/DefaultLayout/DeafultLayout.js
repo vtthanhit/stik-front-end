@@ -1,30 +1,21 @@
 import PropTypes from 'prop-types';
-import { Box } from '@mui/material';
+import { Box, useTheme } from '@mui/material';
 
 import Header from '../components/Header';
 import RightNavBar from '../components/RightNavBar';
-import LayoutContextProvider from '../contexts/LayoutContext';
+import LayoutContextProvider, { LayoutContext } from '../contexts/LayoutContext';
+import { useContext } from 'react';
 
 function DefaultLayout({ children }) {
     return (
         <LayoutContextProvider>
-            <Header isDefault />
-            <>
-                <Box component="nav">
+            <Box sx={{ display: 'flex' }}>
+                <Header isDefault />
+                <>
                     <RightNavBar />
-                </Box>
-                <Box
-                    component="main"
-                    sx={{
-                        ml: 'calc(var(--drawer-nav-width) + var(--scroll-width))',
-                        mt: 'calc(var(--header-height) + 16px)',
-                        minHeight: 'calc(100vh - var(--header-height))',
-                        p: '24px',
-                    }}
-                >
                     {children}
-                </Box>
-            </>
+                </>
+            </Box>
         </LayoutContextProvider>
     );
 }

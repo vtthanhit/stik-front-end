@@ -20,7 +20,7 @@ function NavList() {
     };
 
     return (
-        <List sx={{ pt: '0px' }}>
+        <List sx={{ pt: '0px', pb: '24px' }}>
             <MainListItems />
             <Box>
                 {dataNav.map((list, index) => (

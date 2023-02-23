@@ -10,9 +10,10 @@ import {
     TableSortLabel,
     TableBody,
     Checkbox,
-    Menu, 
+    Menu,
     Paper,
     MenuItem,
+    styled,
 } from '@mui/material';
 import { KeyboardArrowDownOutlined } from '@mui/icons-material';
 import { useState } from 'react';
@@ -79,6 +80,12 @@ function DashboardTable(props) {
         setAnchorEl(null);
     };
 
+    const StyledTableRow = styled(TableRow)(({ theme }) => ({
+        '&:nth-of-type(odd)': {
+            backgroundColor: theme.palette.action.hover,
+        },
+    }));
+
     return (
         <TableContainer component={Paper}>
             {optionSwitchs.map((option, index) => (
@@ -108,7 +115,7 @@ function DashboardTable(props) {
                 </TableHead>
                 <TableBody>
                     {sortedRows.map((row, index) => (
-                        <TableRow key={index}>
+                        <StyledTableRow key={index}>
                             {Object.keys(row).map((key) =>
                                 typeof row[key] === 'boolean' ? (
                                     <TableCell key={key}>
@@ -144,7 +151,7 @@ function DashboardTable(props) {
                                     ))}
                                 </Menu>
                             </TableCell>
-                        </TableRow>
+                        </StyledTableRow>
                     ))}
                 </TableBody>
                 <AppPagination data={data} />
